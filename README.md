@@ -1,58 +1,23 @@
-<<<<<<< HEAD
-# ai-task3
-=======
-# React + TypeScript + Vite
+## Вопрос 1:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ответил на вопрос правильно, подробно описал проблему, предложил решения:
+ - Вынести расчёт в Web Worker
+ - Разбить на части с setTimeout (если нельзя использовать Workers)
 
-Currently, two official plugins are available:
+Краткий вывод:
+"Главное правило: Не выполняйте долгие синхронные задачи в основном потоке — это убивает производительность". 
+"Проверяйте производительность в Chrome DevTools (вкладка Performance), чтобы находить и исправлять такие проблемы"
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Вопрос 2:
+- Рабочий код за 2 промпта
 
-## Expanding the ESLint configuration
+## Вопрос 3:
+#### Уточнения к заданию
+- Time to Interactive(TTI) заменил на Interaction to Next Paint (INP), тк TTI теперь deprecated и удалена из Lighthouse;
+- FCP и LCP первое значение из Perfomanse, второе значение из Lighthouse. 180ms - это среднее арифметическое из 4 замеров;
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
->>>>>>> 6859881 (start: task3)
+#### Результаты:
+- FCP: 180ms; 0.9s
+- LCP: 180ms; 1.4s
+- TBT: 60ms 
+- INP: 20ms
